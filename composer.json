@@ -1,0 +1,13 @@
+{
+  "name": "mrarm/udid-tools",
+  "description": "Apple UDID tools",
+  "type": "library",
+  "minimum-stability": "stable",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "MrARM",
+      "email": "jordan@thesmokinggnu.us"
+    }
+  ]
+}
