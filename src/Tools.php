@@ -15,7 +15,8 @@ namespace mrarm\UDID {
     {
         /**
          * Do a UDID calculation for iPhone 4+
-         * @param string int $ecid numeric ECID
+         * @param $serial
+         * @param $ecid
          * @param string $wifimac Wifi mac address
          * @param string $btmac Bluetooth Mac address
          * @return string UDID
