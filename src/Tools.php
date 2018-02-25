@@ -6,10 +6,12 @@
  * Time: 3:31 PM
  */
 
-namespace mrarm {
+namespace mrarm\UDID {
 
 
-    class UDID
+    use JsonSchema\Exception\ValidationException;
+
+    class Tools
     {
         /**
          * Do a UDID calculation for iPhone 4+
@@ -27,13 +29,13 @@ namespace mrarm {
             //For the mac address
             foreach(Array($wifimac,$btmac) as $mac){
                 if(!preg_match($mac_address_regex,$mac)){
-                    return "Error"; //Exception coming soon
+                    throw new ValidationException("Mac address invalid");
                 }
             }
 
             //ECID
             if(!is_numeric($ecid)){
-                return "Error"; //Exception coming soon
+                throw new ValidationException("ECID invalid");
             }
 
             //Do the calculation
