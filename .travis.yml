@@ -9,4 +9,4 @@ matrix:
   allow_failures:
     - php: nightly
 
-script: php phpunit.phar
+script: phpunit src/Test/CalcTest.php
