@@ -5,14 +5,8 @@ php:
   - '7.0'
   - 'nightly'
 
-  matrix:
-    allow_failures:
+matrix:
+  allow_failures:
     - php: nightly
 
-  env:
-    - COMPOSER_OPTS=""
-    - COMPOSER_OPTS="--prefer-lowest"
-
-  install:
-    - composer self-update --snapshot
-    - composer update $COMPOSER_OPTS
+script: php phpunit.phar
