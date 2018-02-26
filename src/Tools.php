@@ -8,9 +8,6 @@
 
 namespace mrarm\UDID {
 
-
-    use JsonSchema\Exception\ValidationException;
-
     class Tools
     {
         /**
@@ -24,19 +21,19 @@ namespace mrarm\UDID {
         public static function CalculateUDID($serial, $ecid, $wifimac, $btmac){
             //Run regex to see if info is valid
             //Regex list
-            $mac_address_regex = "/((\d|([A-F])){2}:){5}(\d|([A-F])){2}/";
+            $mac_address_regex = "/^[a-fA-F0-9:]{17}|[a-fA-F0-9]{12}$/";
             //ECID and serial are coming later.
 
             //For the mac address
             foreach(Array($wifimac,$btmac) as $mac){
                 if(!preg_match($mac_address_regex,$mac)){
-                    throw new ValidationException("Mac address invalid");
+                    throw new \Exception("Mac address invalid");
                 }
             }
 
             //ECID
             if(!is_numeric($ecid)){
-                throw new ValidationException("ECID invalid");
+                throw new \Exception("ECID invalid");
             }
 
             //Do the calculation
