@@ -3,7 +3,7 @@
   "description": "Apple UDID tools",
   "type": "library",
   "minimum-stability": "stable",
-  "license": "GPL",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "MrARM",
