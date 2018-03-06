@@ -9,5 +9,8 @@
       "name": "MrARM",
       "email": "jordan@thesmokinggnu.us"
     }
-  ]
+  ],
+  "require": {
+    "mustache/mustache": "1.0.0"
+  }
 }

@@ -18,26 +18,27 @@ namespace mrarm\UDID {
          * @param string $btmac Bluetooth Mac address
          * @return string UDID
          */
-        public static function CalculateUDID($serial, $ecid, $wifimac, $btmac){
+        public static function CalculateUDID($serial, $ecid, $wifimac, $btmac)
+        {
             //Run regex to see if info is valid
             //Regex list
             $mac_address_regex = "/^[a-fA-F0-9:]{17}|[a-fA-F0-9]{12}$/";
             //ECID and serial are coming later.
 
             //For the mac address
-            foreach(Array($wifimac,$btmac) as $mac){
-                if(!preg_match($mac_address_regex,$mac)){
+            foreach (Array($wifimac, $btmac) as $mac) {
+                if (!preg_match($mac_address_regex, $mac)) {
                     throw new \Exception("Mac address invalid");
                 }
             }
 
             //ECID
-            if(!is_numeric($ecid)){
+            if (!is_numeric($ecid)) {
                 throw new \Exception("ECID invalid");
             }
 
             //Do the calculation
-            $UDID = sha1(strtoupper($serial).$ecid.$wifimac.$btmac);
+            $UDID = sha1(strtoupper($serial) . $ecid . $wifimac . $btmac);
             return $UDID;
         }
     }
